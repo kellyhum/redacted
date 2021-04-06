@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*----General----*/
+html, body {
+    min-height: 100vh;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+
+    margin: 6rem auto;
+}
+
+h1 {
+    text-decoration: line-through;
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+label {
+    font-size: 1.125rem;
+}
+
+button {
+    font-size: 1.5rem;
+}
+
+/*----Title----*/
+.title {
+    position: relative;
+}
+
+/*----Text Generation Container----*/
+.container {
+    width: 50%;
+    height: 250px;
+    margin: 2rem auto;
+
+    border: 0.2rem solid #000;
+    border-radius: 0rem 1.875rem;
+}
+
+/*----Input/Form Container----*/
+.form_container {
+    margin: 2rem auto;
+}
+
+.paragraphs {
+    margin: 1rem auto;
+}
+
+.long, .medium, .short {
+    display: inline-block;
+    margin: auto 1rem;
+}
