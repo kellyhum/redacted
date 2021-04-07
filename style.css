@@ -1,3 +1,8 @@
+/**
+ * style.css
+ * contains the main styling for the generator
+**/
+
 * {
     margin: 0;
     padding: 0;
@@ -7,13 +12,14 @@
 /*----General----*/
 html, body {
     min-height: 100vh;
+    overflow: hidden;
 }
 
 body {
+    padding: 6rem 0rem;
+
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-
-    margin: 6rem auto;
 }
 
 h1 {
@@ -21,43 +27,84 @@ h1 {
     font-size: 3rem;
 }
 
+h3, label, button {
+    font-weight: 500;
+}
+
 h3 {
     font-size: 1.5rem;
 }
 
-label {
+p {
+    text-align: left;
     font-size: 1.125rem;
 }
 
+label, input {
+    font-size: 1.125rem;
+}
+
+input {
+    cursor: pointer;
+}
+
 button {
+    padding: 1rem 1.5rem;
+    margin: auto 1.5rem;
+
     font-size: 1.5rem;
+    background: transparent;
+    border: 0.2rem solid #000;
+
+    cursor: pointer;
 }
 
-/*----Title----*/
-.title {
-    position: relative;
-}
-
-/*----Text Generation Container----*/
+/*----Text Generation Area----*/
 .container {
     width: 50%;
-    height: 250px;
-    margin: 2rem auto;
+    height: 25rem;
+    margin: 3rem auto;
+    padding: 2rem 3rem;
 
     border: 0.2rem solid #000;
-    border-radius: 0rem 1.875rem;
+    border-radius: 0rem 2rem;
 }
 
-/*----Input/Form Container----*/
+/*----Input/Form----*/
 .form_container {
-    margin: 2rem auto;
+    margin: 2.5rem auto;
 }
 
-.paragraphs {
+.form_paragraphs {
+    display: block;
     margin: 1rem auto;
 }
 
-.long, .medium, .short {
+.form_paragraphs label, .form_paragraphs input {
+    margin: auto 2rem;
+    padding: 0.8rem 1.5rem;
+
+    border: 0.2rem solid #000;
+    box-shadow: 0.3125rem 0.25rem #000;
+}
+
+.form_paragraphs input {
+    width: 7rem;
+    padding: 0.8rem 0.8rem 0.8rem 2.6rem;
+}
+
+.form_paragraphs input:hover {
+    box-shadow: none;
+    transition: 0.4s;
+}
+
+.form_long, .form_medium, .form_short {
     display: inline-block;
-    margin: auto 1rem;
+    margin: 1rem 1rem 2rem;
+}
+
+/*----Buttons----*/
+.button_copy {
+    background-color: #000;
+    color: #fff;
 }
