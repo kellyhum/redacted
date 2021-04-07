@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./style.css">
 
     <!--Favicon-->
-    <link rel="icon" href="./favicon.jpg">
+    <link rel="icon" href="./assets/favicon.jpg">
 
     <!--Font-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -26,37 +26,36 @@
 
         <!--Text Generation Container-->
         <div class="container">
-            
+            <p class="container-text">some dummy text</p>
         </div>
 
         <!--Input/Form Container-->
         <form class="form_container">
-            <div class="paragraphs">
-                <label for="number-input">Paragraphs:</label>
+            <div class="form_paragraphs">
+                <label for="number-input">paragraphs:</label>
                 <input type="number" id="number-input" value="1">
             </div>
             
-            <div class="long">
+            <label for="long" class="form_long">
                 <input type="radio" id="long">
-                <label for="long">long</label>
-            </div>
+                long
+            </label>
             
-            <div class="medium">
+            <label for="medium" class="form_medium">
                 <input type="radio" id="medium">
-                <label for="medium">medium</label>
-            </div>
+                medium
+            </label>
             
-            <div class="short">
+            <label for="short" class="form_short">
                 <input type="radio" id="short">
-                <label for="short">short</label>
-            </div>
-            
+                short
+            </label>
         </form>
 
-        <!--Copy and Generate Buttons Container-->
+        <!--Buttons Container-->
         <div class="button_container">
-            <button>Copy</button>
-            <button>Generate</button>
+            <button class="button_copy">Copy</button>
+            <button class="button_generate">Generate</button>
         </div>
     </main>
 </body>
