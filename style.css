@@ -66,8 +66,13 @@ button {
     margin: 3rem auto;
     padding: 2rem 3rem;
 
+    overflow-y: scroll;
     border: 0.2rem solid #000;
     border-radius: 0rem 2rem;
+}
+
+.container-text {
+    line-height: 2.5rem;
 }
 
 /*----Input/Form----*/
@@ -91,11 +96,6 @@ button {
 .form_paragraphs input {
     width: 7rem;
     padding: 0.8rem 0.8rem 0.8rem 2.6rem;
-}
-
-.form_paragraphs input:hover {
-    box-shadow: none;
-    transition: 0.4s;
 }
 
 .form_long, .form_medium, .form_short {
