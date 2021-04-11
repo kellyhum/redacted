@@ -66,7 +66,6 @@ button {
     margin: 3rem auto;
     padding: 2rem 3rem;
 
-    overflow-y: scroll;
     border: 0.2rem solid #000;
     border-radius: 0rem 2rem;
 }
