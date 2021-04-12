@@ -4,10 +4,10 @@
  */
 
 //Default lorem ipsum text
-let loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
 
 //List containing random words
-let wordBank = ['cat', 'dog', 'chicken', 'donuts', 'meow', 'purr', 'hiss', 'woof', 'sugar', 'biscuits', 'bone', 'scratch', 'nuggets', 
+const wordBank = ['cat', 'dog', 'chicken', 'donuts', 'meow', 'purr', 'hiss', 'woof', 'sugar', 'biscuits', 'bone', 'scratch', 'nuggets', 
                 'claw', 'furry', 'wild', 'pet', 'carbohydrates', 'food','hamburgers', 'fries', 'soda', 'pizza', 'parrot', 'pickle',
                 'dumpling', 'soup', 'salad', 'drinks', 'growl', 'churros', 'hot dogs', 'recipe', 'chomp', 'heat', 'bird', 'squawk', 
                 'ice cream', 'burritos', 'calico', 'striped', 'fun', 'pasta', 'croissants', 'post', 'apple', 'pineapple', 'pegasus', 
@@ -20,22 +20,24 @@ let wordBank = ['cat', 'dog', 'chicken', 'donuts', 'meow', 'purr', 'hiss', 'woof
 
 //Main text generation function
 const mainGenerator = () => {
+    /*----Variables----*/
+    let initialLorem = loremIpsum.split(' ');
+        //paragraphAmount = document.querySelector('#number-input');
+    
+    /*----Functions----*/
     //Function for generating random numbers from 0 to array length
-    const randomNumber = (array) => {
-        return Math.floor(Math.random() * array.length);
+    const randomNumber = (array) => Math.floor(Math.random() * array.length); 
+
+    /*----Loops----*/
+    //Pulls random words from wordBank and replaces words from initialLorem
+    for (i = 0; i < 25; i++) {
+        let randomWordBank = wordBank[randomNumber(wordBank)];
+        initialLorem.splice(randomNumber(initialLorem), 1, randomWordBank);
     }
 
-    //Variables
-    let initialLorem = loremIpsum.split(' '),
-        splitLorem = [],
-        newWordBank = [],
-        paragraphAmount = document.querySelector('#number-input');
-
-    //Loop that pulls 10 random words from both wordBank and initialLorem and puts them into two separate arrays
-    for (i = 0; i < 20; i++) {
-        newWordBank.push(wordBank.splice(randomNumber(wordBank), 1));
-        splitLorem.push(initialLorem.splice(randomNumber(initialLorem), 1));
-    }
+    //Convert to sentence, push to text container on screen
+    let finalLorem = initialLorem.join(' ');
+    document.querySelector('.container-text').innerHTML = finalLorem;
 
     //Conditional for if there's more than 1 paragraph
     if (paragraphAmount.nodeValue > 1) {
