@@ -20,33 +20,33 @@ const wordBank = ['cat', 'dog', 'chicken', 'donuts', 'meow', 'purr', 'hiss', 'wo
 
 //Main text generation function
 const mainGenerator = () => {
-    /*----Variables----*/
-    let initialLorem = loremIpsum.split(' ');
-        //paragraphAmount = document.querySelector('#number-input');
+    let generateButton = document.querySelector('.button_generate'),
+        paragraphAmount = document.querySelector('#number-input');
     
-    /*----Functions----*/
     //Function for generating random numbers from 0 to array length
     const randomNumber = (array) => Math.floor(Math.random() * array.length); 
 
-    /*----Loops----*/
-    //Pulls random words from wordBank and replaces words from initialLorem
-    for (i = 0; i < 25; i++) {
-        let randomWordBank = wordBank[randomNumber(wordBank)];
-        initialLorem.splice(randomNumber(initialLorem), 1, randomWordBank);
+    //Function for creating the new lorem ipsum paragraph
+    const buttonPress = () => {
+        let initialLorem = loremIpsum.split(' ');
+
+        //Pulls random words from wordBank and replaces words from initialLorem
+        for (i = 0; i < 25; i++) {
+            let randomWordBank = wordBank[randomNumber(wordBank)];
+            initialLorem.splice(randomNumber(initialLorem), 1, randomWordBank);
+        }
+
+        let finalLorem = initialLorem.join(' ');
+        document.querySelector('.container-text').innerHTML = finalLorem; 
     }
 
-    //Convert to sentence, push to text container on screen
-    let finalLorem = initialLorem.join(' ');
-    document.querySelector('.container-text').innerHTML = finalLorem;
-
-    //Conditional for if there's more than 1 paragraph
     if (paragraphAmount.nodeValue > 1) {
-        for (i = 0; i < paragraphAmount.nodeValue; i++) {
 
-        }
     } else {
 
     }
+
+    generateButton.addEventListener('click', buttonPress);
 }
 
 mainGenerator();
