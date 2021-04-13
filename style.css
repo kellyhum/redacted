@@ -107,3 +107,9 @@ button {
     background-color: #000;
     color: #fff;
 }
+
+.button_copy:hover, .button_generate:hover {
+    transform: translate(-0.3125rem, -0.25rem);
+    box-shadow: 0.3125rem 0.25rem #ffa07a;
+    transition: 0.3s ease;
+}
