@@ -1,6 +1,6 @@
 /**
  * script.js
- * used for the random text generation feature and container overflow management
+ * used for the random text generation feature
  */
 
 //Default lorem ipsum text
@@ -21,32 +21,40 @@ const wordBank = ['cat', 'dog', 'chicken', 'donuts', 'meow', 'purr', 'hiss', 'wo
 //Main text generation function
 const mainGenerator = () => {
     let generateButton = document.querySelector('.button_generate'),
-        paragraphAmount = document.querySelector('#number-input');
+        copyButton = document.querySelector('.button_copy');
     
     //Function for generating random numbers from 0 to array length
     const randomNumber = (array) => Math.floor(Math.random() * array.length); 
 
     //Function for creating the new lorem ipsum paragraph
-    const buttonPress = () => {
-        let initialLorem = loremIpsum.split(' ');
+    const generateClicked = () => {
+        let initialLorem = loremIpsum.split(' '),
+            value = document.querySelector('#number-input').value;
 
         //Pulls random words from wordBank and replaces words from initialLorem
         for (i = 0; i < 25; i++) {
             let randomWordBank = wordBank[randomNumber(wordBank)];
-            initialLorem.splice(randomNumber(initialLorem), 1, randomWordBank);
+            let randomInitialLorem = randomNumber(initialLorem);
+
+            initialLorem.splice(randomInitialLorem, 1, randomWordBank);
         }
 
+        //Creates new lorem ipsum paragraph, sets value of paragraph to new lorem ipsum paragraph
         let finalLorem = initialLorem.join(' ');
         document.querySelector('.container-text').innerHTML = finalLorem; 
+
+        //Function for when 'copy' button is clicked; copies text to clipboard
+        const copyClicked = () => {
+            const clipboard = navigator.clipboard;
+            const text = finalLorem;
+            clipboard.writeText(finalLorem);
+        }
+
+        copyButton.addEventListener('click', copyClicked);
     }
 
-    if (paragraphAmount.nodeValue > 1) {
-
-    } else {
-
-    }
-
-    generateButton.addEventListener('click', buttonPress);
+    generateButton.addEventListener('click', generateClicked);
+    
 }
 
 mainGenerator();
